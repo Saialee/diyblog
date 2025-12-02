@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h2> {{ blogpost.title}} </h2>
+
+<p><strong>Blogger: </strong> {{ blogpost.author }} </p>
+
+<p><strong>Date Posted: </strong> {{ blogpost.post_date }} </p>
+
+<p><strong>Description: </strong> {{ blogpost.content }} </p>
+
+{% endblock %}

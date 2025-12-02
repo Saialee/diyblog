@@ -4,10 +4,10 @@
 
 <h1> All Blogs </h1>
 
-{% if blogposts %}
+{% if allblogposts %}
     <ul>
-        {% for blogpost in blogposts %}
-        <li>{{ blogpost.title }} ({{ blogpost.post_date }}) --- {{ blogpost.author }}</li>
+        {% for blogpost in allblogposts %}
+        <li><a>{{ blogpost.title }}</a> ({{ blogpost.post_date }}) --- {{ blogpost.author }}</li>
         {% endfor %}
     </ul>
 

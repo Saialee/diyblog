@@ -30,9 +30,23 @@ def index(request):
 class BlogPostListView(generic.ListView):
     model = BlogPost
     template_name = "blog/blogs.html"
-    context_object_name = 'blogposts'
+    context_object_name = 'allblogposts'
     paginate_by = 5
 
 class BlogPostDetailView(generic.DetailView):
     model = BlogPost
+    context_object_name = "blogpost"
     template_name = "blog/blogpost_detail.html"
+
+class BloggersListView(generic.ListView):
+    model = Blogger
+    context_object_name = 'allbloggers'
+    template_name = 'bloggers.html'
+    paginate_by = 5
+
+class BloggerDetailView(generic.DetailView):
+    model = Blogger
+    context_object_name = 'blogger'
+    template_name = 'blogger_detail.html'
+
+
