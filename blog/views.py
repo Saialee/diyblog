@@ -41,12 +41,12 @@ class BlogPostDetailView(generic.DetailView):
 class BloggersListView(generic.ListView):
     model = Blogger
     context_object_name = 'allbloggers'
-    template_name = 'bloggers.html'
+    template_name = 'blog/bloggers_list_view.html'
     paginate_by = 5
 
 class BloggerDetailView(generic.DetailView):
     model = Blogger
     context_object_name = 'blogger'
-    template_name = 'blogger_detail.html'
+    template_name = 'blog/blogger_detail.html'
 
 

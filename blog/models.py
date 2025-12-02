@@ -11,11 +11,12 @@ class Blogger(models.Model):
     author = models.OneToOneField(User, on_delete=CASCADE)
     bio = models.TextField(max_length=500, help_text="Tell us about yourself!")
 
+    def __str__(self):
+        return self.author.username
+
     def get_absolute_url(self):
         return reverse('blogger-detail', args=[str(self.id)])
 
-    def __str__(self):
-        return self.author.username
     
 #BlogPost model    
 class BlogPost(models.Model):
@@ -28,7 +29,7 @@ class BlogPost(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('blog-detail', args=[str(self.id)])
+        return reverse('blogpost-detail', args=[str(self.id)])
     
 class Comment(models.Model):
     blog = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='comments')

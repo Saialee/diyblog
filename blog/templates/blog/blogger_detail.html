@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h3> {{ blogger.author}} </h3>
+
+<p><strong>Bio: </strong> {{ blogger.bio }} </p>
+
+<h4>Blog Posts:</h4>
+{% if blogger.blogpost_set.all %}
+    <ul>
+    {% for post in blogger.blogpost_set.all %}
+        <li>
+            <a href="{% url 'blogpost-detail' post.id %}">{{ post.title }}</a>
+            ({{ post.post_date|date:"M d, Y" }})
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>This author has no blog posts yet.</p>
+{% endif %}
+
+
+{% endblock %}

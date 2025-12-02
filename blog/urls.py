@@ -6,7 +6,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('blogs/', views.BlogPostListView.as_view(), name='blogs'),
     path('blogpost/<int:pk>/', views.BlogPostDetailView.as_view(), name='blogpost-detail'),
-    #path('bloggers/', views.BloggerListView.as_view(), name=blogger-list'),
+    path('bloggers/', views.BloggersListView.as_view(), name='blogger-list'),
+    path('blogger/<int:pk>/', views.BloggerDetailView.as_view(), name='blogger-detail'),
 
     
 ]

@@ -7,7 +7,7 @@
 {% if allblogposts %}
     <ul>
         {% for blogpost in allblogposts %}
-        <li><a>{{ blogpost.title }}</a> ({{ blogpost.post_date }}) --- {{ blogpost.author }}</li>
+        <li><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a> ({{ blogpost.post_date }}) --- {{ blogpost.author }}</li>
         {% endfor %}
     </ul>
 
