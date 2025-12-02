@@ -14,7 +14,7 @@ class Blogger(models.Model):
         return reverse('blogger-detail', args=[str(self.id)])
 
     def __str__(self):
-        return self.user.username
+        return self.author.username
     
 #BlogPost model    
 class BlogPost(models.Model):
