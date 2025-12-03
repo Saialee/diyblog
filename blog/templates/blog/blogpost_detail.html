@@ -1,13 +1,36 @@
 {% extends "base_generic.html" %}
+{% load static %}
 
 {% block content %}
 
-<h2> {{ blogpost.title}} </h2>
+<h2 class="blogpost-title"> {{ blogpost.title}} </h2>
 
-<p><strong>Blogger: </strong> {{ blogpost.author }} </p>
+<p class="author-name"><strong>Blogger: </strong> {{ blogpost.author }} </p>
 
-<p><strong>Date Posted: </strong> {{ blogpost.post_date }} </p>
+<p class="blogpost-date"><strong>Date Posted: </strong> {{ blogpost.post_date }} </p>
 
-<p><strong>Description: </strong> {{ blogpost.content }} </p>
+<p class="blog-content"><strong>Description: </strong> {{ blogpost.content }} </p>
+
+{% if user.is_authenticated %}
+    <p><a href="{% url 'add-comment' blogpost.pk %}" class="btn btn-primary">Add Comment</a></p>
+{% else %}
+    <p><a href="{% url 'login' %}?next={{ request.path }}">Log in</a> to comment</p>
+{% endif %}
+
+<hr>
+
+<h3>Comments</h3>
+{% if blogpost.comments.all %}
+    <ul class="comments-background">
+        {% for comment in blogpost.comments.all %}
+            <li>
+                <strong>{{ comment.author }}</strong> ({{ comment.comment_date|date:"M d, Y" }}):
+                <p>{{ comment.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No comments yet.</p>
+{% endif %}
 
 {% endblock %}

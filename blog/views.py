@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Blogger, BlogPost, Comment
+from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 
@@ -32,6 +35,7 @@ class BlogPostListView(generic.ListView):
     template_name = "blog/blogs.html"
     context_object_name = 'allblogposts'
     paginate_by = 5
+    ordering = ['-post_date']
 
 class BlogPostDetailView(generic.DetailView):
     model = BlogPost
@@ -43,6 +47,7 @@ class BloggersListView(generic.ListView):
     context_object_name = 'allbloggers'
     template_name = 'blog/bloggers_list_view.html'
     paginate_by = 5
+    ordering = ['-author']
 
 class BloggerDetailView(generic.DetailView):
     model = Blogger
@@ -50,3 +55,20 @@ class BloggerDetailView(generic.DetailView):
     template_name = 'blog/blogger_detail.html'
 
 
+@login_required
+def add_comment(request, pk):
+    blogpost = get_object_or_404(BlogPost, pk=pk)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            Comment.objects.create(
+                blog=blogpost,
+                author=request.user,
+                description=form.cleaned_data['text']
+            )
+            return redirect('blogpost-detail', pk=blogpost.pk)
+    else:
+        form = CommentForm()
+
+    return render(request, 'blog/add_comment.html', {'form': form, 'blogpost': blogpost})

@@ -1,3 +1,14 @@
+
+@font-face {
+    font-family: 'Roboto-medium';
+    src: url('../fonts/Roboto_SemiCondensed-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'ATCOnyx';
+    src: url('../fonts/ATCOnyxBold.otf');
+}
+
 .sidebar-nav {
   margin-top: 20px;
   padding: 0;
@@ -10,4 +21,73 @@
 #logout-form button {
   padding: 0;
   margin: 0;
+}
+
+.custom-body {
+
+    color: #c8c8c8;
+    border: 5px solid #828d85;
+    font-family: 'ATCOnyx';
+    font-size: xx-large;
+
+}
+
+.col-sm-2 {
+    background-color: #11100d;
+    
+
+}
+
+.col-sm-2 a {
+    color: #c8c8c8;
+}
+
+.col-sm-10 {
+    background-image: url('../images/Stars\ Background\ GIF.gif') ;
+    justify-items: center;
+}
+
+a {
+    color: #c8c8c8;
+}
+
+.blog-content {
+    background-color: #ffffff;
+    margin: 10px 100px;
+    padding: 50px;
+    color: #11100d;
+
+}
+
+.author-name {
+
+    font-family: 'Roboto-medium';
+}
+
+.blog-title {
+    color: #c89c40;
+}
+
+.blogpost-date {
+    font-size: 30px;
+}
+.blogpost-title {
+    margin-top: 50px;
+    color: #c89c40;
+    font-size: 80px;
+}
+.comments-background {
+    background-color: #11100d ;
+    color: #c89c40;
+}
+
+h1 {
+    font-size: 100px;
+    font-family: 'Roboto-medium';
+}
+
+h2 {
+    
+    font-size: 50px;
+
 }

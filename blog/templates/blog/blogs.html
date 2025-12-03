@@ -1,4 +1,5 @@
 {% extends "base_generic.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -7,7 +8,7 @@
 {% if allblogposts %}
     <ul>
         {% for blogpost in allblogposts %}
-        <li><a href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a> ({{ blogpost.post_date }}) --- {{ blogpost.author }}</li>
+        <li><a class="blog-title" href="{{ blogpost.get_absolute_url }}">{{ blogpost.title }}</a> ({{ blogpost.post_date|date:"M d, Y" }}) -- <a href="{{ blogpost.author.get_absolute_url }}">{{ blogpost.author }}</a></li>
         {% endfor %}
     </ul>
 
