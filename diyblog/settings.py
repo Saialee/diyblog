@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import dj_database_url
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,8 +35,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY' )
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'miniblogofsaisha-e39363f19efc.herokuapp.com', 
-                 'miniblogofsaisha-e39363f19efc-759869354dc9.herokuapp.com', 'www.miniblogofsaisha-e39363f19efc.herokuapp.com', 
-                 'www.miniblogofsaisha-e39363f19efc-759869354dc9.herokuapp.com']
+                 'miniblogofsaisha-e39363f19efc-759869354dc9.herokuapp.com']
 
 
 # Application definition
