@@ -27,7 +27,7 @@ def index(request):
     }
 
 
-    return render(request, "index.html", context=context)
+    return render(request, "blog/index.html", context=context)
 
 #BlogPost List View
 class BlogPostListView(generic.ListView):
