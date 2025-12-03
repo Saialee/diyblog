@@ -23,14 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '4792331458921565%$%miniblogofsaisha251442@1' )
+from dotenv import load_dotenv
+load_dotenv()
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY' )
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'miniblogofsaisha-e39363f19efc.herokuapp.com', 
-                 'miniblogofsaisha-e39363f19efc-759869354dc9.herokuapp.com']
+                 'miniblogofsaisha-e39363f19efc-759869354dc9.herokuapp.com', 'www.miniblogofsaisha-e39363f19efc.herokuapp.com', 
+                 'www.miniblogofsaisha-e39363f19efc-759869354dc9.herokuapp.com']
 
 
 # Application definition
