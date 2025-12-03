@@ -10,5 +10,4 @@ urlpatterns = [
     path('blogger/<int:pk>/', views.BloggerDetailView.as_view(), name='blogger-detail'),
     path('blogpost/<int:pk>/comment/', views.add_comment, name='add-comment'),
 
-    
 ]
